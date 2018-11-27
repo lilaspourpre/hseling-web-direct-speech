@@ -1,5 +1,6 @@
 uwsgi==2.0.17
-Django==1.11.11
+requests>=2.20.0
+Django==1.11.15
 pytest-django==3.1.2
 psycopg2==2.7.4
 djangorestframework==3.7.7
