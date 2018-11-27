@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from tweet.models import Tweet
+from web.models import Record
 import logging
 
 logger = logging.getLogger(__name__)
@@ -15,7 +15,7 @@ def healthcheck(request):
 
     # Check DB making a lightweight DB query
     try:
-        Tweet.objects.first()
+        Record.objects.first()
         result['db'] = {'status': 'ok'}
     except Exception as err:
         result['status'] = 'nok'

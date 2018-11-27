@@ -68,7 +68,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_prometheus',
     'rest_framework',
-    'tweet',
+    'web',
 ]
 
 MIDDLEWARE = [

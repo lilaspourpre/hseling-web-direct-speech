@@ -1,6 +1,6 @@
 [
 {
-    "model": "tweet.tweet",
+    "model": "web.record",
     "pk": 1,
     "fields": {
         "text": "This is a test",
@@ -8,7 +8,7 @@
     }
 },
 {
-    "model": "tweet.tweet",
+    "model": "web.record",
     "pk": 2,
     "fields": {
         "text": "This is another test",

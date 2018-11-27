@@ -14,7 +14,7 @@ class HealthCheck(TestCase):
         result = response.json()
         assert result == {'status': 'ok', 'db': {'status': 'ok'}}
 
-    @mock.patch('tweet.models.Tweet.objects.first')
+    @mock.patch('web.models.Record.objects.first')
     def test_bad_healthcheck(self, db_mock):
         db_mock.side_effect = Exception('This is an error')
 
