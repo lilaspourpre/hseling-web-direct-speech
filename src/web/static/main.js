@@ -20,6 +20,7 @@ $(function () {
       $.get("/web/status?task_id=" + task_id, function(data) {
         if (data.ready) {
           $(".lead").text(data.result);
+          $(".raw").text(data.raw);
         } else {
           setTimeout(get_status, 2000);
         }

@@ -16,7 +16,7 @@ def web_index(request):
 def web_main(request):
     # content = requests.get(HSE_API_ROOT)
     return render(request, 'main.html',
-                  context={})
+                  context={"status": request.GET.get('status')})
 
 
 def web_status(request):
@@ -24,7 +24,11 @@ def web_status(request):
     if task_id:
         url = HSE_API_ROOT + "status/" + task_id
         content = requests.get(url)
-        return JsonResponse(content.json())
+        result = content.json()
+        if result.get('status') == 'SUCCESS':
+            content = requests.get(HSE_API_ROOT + 'files/' + result.get('result', [""])[0])
+            result['raw'] = content.content.decode('utf-8')
+        return JsonResponse(result)
     return JsonResponse({"error": "No task id"})
 
 
@@ -57,4 +61,4 @@ def web_upload_file(request):
             return HttpResponseRedirect('main?task_id=' + task_id)
     else:
         form = UploadFileForm()
-    return render(request, 'upload.html', {'form': form})
+    return render(request, 'main.html', {'form': form})
