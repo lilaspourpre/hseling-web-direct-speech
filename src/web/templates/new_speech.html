@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>(In)direct speech</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--<link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css">-->
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    
+  </head>
+  <body>
+    <div class = "page-header col-md-12">
+      <span id="page-title">(не)прямая речь</span>
+    </div>
+
+<!-- navigation-->
+     <nav class="navbar navbar-expand-lg sticky-top navbar-light" style="background-color: #ffebcd;">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="new_speech.html">Главная</a>
+          </li>
+           <li class="nav-item active">
+            <a class="nav-link" href="gold-corpus.html">Золотой корпус</a>
+           </li>
+           <li class="nav-item active">
+            <a class="nav-link" href="tag-your-text.html">Работать с текстом</a>
+           </li>
+           <li class="nav-item active">
+            <a class="nav-link" href="about.html">О проекте</a>
+           </li>
+        </ul>
+      </div>
+     </nav>
+
+<!-- main stuff-->
+
+     <div class="container-fluid">
+       <div class="row no-gutters">
+
+        <!--left side -->
+        <div class="col-md-8 left">
+          <div class="row">
+            <div class="col-md-12" >
+              
+                <span id="markup-example" style="padding-left: 5px;">пример разметки</span>
+         
+                 <p class="example" style="padding: 40px 10px; border: solid 1px black; border-radius: 10px; margin-right: 10px;">
+                  <span class="said">"Позвольте мне вам представить жену мою"</span>, <span class="author-comment"><span class="speech-verb">сказал</span> <span class="who">Манилов</span></span>. <span class="said">"Душенька, Павел Иванович!"</span>
+                </p>
+            </div>  
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h6>Тэги</h6>
+              <form method="POST">
+                <input type="checkbox" name="said" value="said" class="said-tag"><span class="said-tag-span" style="margin: 0 10px;">прямая речь</span>
+                <input type="checkbox" name="author_comment" value="author_comment" class="author-tag"><span class="author-tag-span" style="margin: 0 10px;">слова автора</span>  
+                <input type="checkbox" name="speech_verb" value="speech_verb" class="verb-tag"><span class="verb-tag-span" style="margin: 0 10px;">глагол речи</span>
+                <input type="checkbox" name="who" value="who" class="who-tag"><span class="who-tag-span" style="margin: 0 10px;">говорящий</span>
+              </form>  
+            </div>
+            
+          </div>
+          <div class="row" style="margin: 40px 0 15px 0;">
+            <div class="col-md-8">
+              <h3>Загрузить свой текст для разметки</h3>
+              <p>Вы можете загрузить свой текст и работать с ним онлайн или скачать размеченный текст, потому что мы крутые</p>
+            </div>
+          </div>
+
+          <div class="row" style="margin: 10px;">
+            <div class="col-md-6">
+              <form method="POST">
+                <input type="text" size="20" value="выберите файл" style="color: rgba(211, 211, 211, 0.5);">
+                <button class="btn btn-sm btn-info">Загрузить и разметить</button>
+              </form>
+            </div>
+            <div class="col-md-6">
+                <i class="fas fa-cog fa-spin fa-5x"></i>
+            </div>
+          </div>
+
+          <div class="row" style="padding: 10px;">
+            <div id="download-button">
+              <div class="col-md-3">
+                <form method="POST">
+                  <button class="btn btn-lg btn-info">Скачать в формате</button><br>
+                 </form> 
+              </div>
+
+              <div class="col-md-9">
+                <input type="checkbox" name="xml" value="xml" checked="">xml<br>
+                <input type="checkbox" name="txt" value="txt">txt<br>
+              </div>
+              
+            </div>
+            
+                
+             
+
+
+
+<!--
+
+            <div class="col-md-1">
+              <p style="padding: 10px 0;">или</p> 
+            </div>
+
+    
+
+            <div class="col-md-7">
+              <form method="POST">
+              <button class="btn btn-lg btn-info">Работать с корпусом онлайн</button><br>
+              </form> 
+            </div>
+-->
+
+          </div>
+
+
+        </div>
+
+              
+
+
+
+
+
+
+
+
+
+        <!--right side -->
+        <div class="col-md-4 right" style="border: solid 1px black; border-radius: 10px; padding: 10px; margin: 23px 0;">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Золотой стандарт</h3>
+              <p style="padding: 40px 5px;">
+             Вы можете скачать размеченный золотой стандарт для обучения моделей.
+              </p>
+            </div>
+            
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <form method="POST">
+                <button class="btn btn-lg btn-info">Скачать в формате</button><br>
+              </form> 
+            </div>
+            <div class="col-md-6">
+              <input type="checkbox" name="xml" value="xml" checked="">xml<br>
+              <input type="checkbox" name="txt" value="txt">txt<br>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12" style="margin: 10px 0; padding-left: 100px;">
+              <p>или</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <form method="POST">
+                <button class="btn btn-lg btn-info">Работать с корпусом онлайн</button><br>
+              </form> 
+            </div>
+          </div>
+
+
+          
+        </div>
+         
+       </div>
+     </div>
+
+
+     <!--Footer -->
+     
+     <footer class="page-footer font-small fixed-bottom" style="background-color: #ffebcd;">
+      <div class="container-fluid">
+        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+         <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Пишите нам</a>
+          </h6>
+         </div>
+        </div> 
+      </div> 
+    </footer>
+  
+
+
+  </body>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>     
