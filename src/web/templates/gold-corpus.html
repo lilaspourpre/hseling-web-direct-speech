@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- main stuff-->
+
+     <div class="container-fluid">
+       <div class="row no-gutters">
+
+
+
+<!--
+          <div class="row" style="padding: 10px;">
+            <div class="col-md-3">
+              <form method="POST">
+                <button class="btn btn-lg btn-info">Скачать в формате</button><br>
+              </form>
+            </div>
+
+            <div class="col-md-1">
+              <input type="checkbox" name="xml" value="xml" checked="">xml<br>
+              <input type="checkbox" name="txt" value="txt">txt<br>
+            </div>
+          </div>
+        -->
+        <div class="col-md-8-left">
+          <br>
+            <h3>Статистика по золотому корпусу:</h3>
+          <table class="table table-bordered table-hover">
+            <!--
+            <thead>
+              <th>Col1</th>
+              <th>Col2</th>
+            </thead> -->
+            <tbody>
+              <tr class="table-active">
+                <td>Всего случаев чужой речи в тексте:</td>
+                <td>133</td>
+              </tr>
+              <tr>
+                <td>В них собственно высказываний:</td>
+                <td>179</td>
+              </tr>
+              <tr>
+                <td>Из них прямая речь:</td>
+                <td>165</td>
+              </tr>
+              <tr>
+                <td>Косвенная речь:</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Сказано вслух:</td>
+                <td>165</td>
+              </tr>
+              <tr>
+                <td>Не сказано вслух:</td>
+                <td>5</td>
+              </tr>
+              <tr class="table-active">
+                <td>Всего авторских комментариев ("слова автора"):</td>
+                <td>102</td>
+              </tr>
+              <tr class="table-active">
+                <td>Всего глаголов речи (не уникальных):</td>
+                <td>95</td>
+              </tr>
+              <tr>
+                <td>Из них глаголов с семантикой "речь":</td>
+                <td>89</td>
+              </tr>
+              <tr>
+                <td>Глаголов с семантикой "действие":</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Глаголов с семантикой "мысль":</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Глаголов с семантикой "пение":</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>Нейтральных глаголов:</td>
+                <td>62</td>
+              </tr>
+              <tr>
+                <td>Глаголов с пометкой "громкий":</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <td>Глаголов с пометкой "грубый":</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>Глаголов с пометкой "грустный":</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Глаголов с пометкой "перебивать":</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Глаголов с пометкой "соглашаться":</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>Глаголов с пометкой "возражать":</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Глаголов с пометкой "волнение":</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>Глаголов, вводящих вопрос:</td>
+                <td>9</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+        <!--right side -->
+        <div class="col-md-4 right" style="radius: 10px; padding-left: 120px; padding-top: 20px; margin-left: 23px 0; align-content:left;">
+          <!--
+          <div class="row">
+            <div class="col-md-12">
+
+              <h3>Золотой стандарт</h3>
+
+              <p style="padding: 40px 5px;">
+             Скачайте золотой корпус
+              </p>
+            </div>
+
+          </div>
+           -->
+
+          <div>
+            <div>
+              <h3>Скачать золотой корпус</h3>
+              <button type="button" onclick="window.open('download_txt')" class="btn btn-lg btn-info" style="margin-top: 10px; margin-right: 50px; padding-left: 20px; padding-right: 20px">txt</button>
+              <button type="button" onclick="window.open('download_xml')" class="btn btn-lg btn-info" style="margin-top: 10px; padding-left: 20px; padding-right: 20px">XML</button>
+            </div>
+          </div>
+
+
+
+
+
+
+        </div>
+
+       </div>
+     </div>
+
+{% endblock %}

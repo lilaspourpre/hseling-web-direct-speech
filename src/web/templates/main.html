@@ -1,21 +1,60 @@
 {% extends 'base.html' %}
 
-{% block menu %}
-<a class="p-2 text-dark" href=".">Index</a>
-<a class="p-2 text-dark" href="upload">Upload &amp; Process</a>
-{% endblock %}
-
 {% block content %}
-{% if form %}
-<h1 class="display-4">Upload</h1>
-<form method=post enctype=multipart/form-data>
-  {% csrf_token %}
-  {{ form }}
-  <button type="submit" class="btn btn-lg btn-primary">Upload</button>
-</form>
-{% else %}
-<h1 class="display-4">Processed</h1>
-<p class="lead"></p>
-<pre class="raw"></pre>
-{% endif %}
+<!-- main stuff-->
+
+     <div class="container-fluid">
+       <div class="row no-gutters">
+
+        <!--left side -->
+        <div class="col-md-8 left">
+          <div class="row">
+            <div class="col-md-12" >
+
+                <span id="markup-example" style="padding-left: 5px;">пример разметки</span>
+
+                 <p class="example" style="padding: 40px 10px; border: solid 1px black; border-radius: 10px; margin-right: 10px;">
+                  <span class="said">"Позвольте мне вам представить жену мою"</span>, <span class="author-comment"><span class="speech-verb">сказал</span> <span class="who">Манилов</span></span>. <span class="said">"Душенька, Павел Иванович!"</span>
+                </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h6>Тэги</h6>
+              <form method="POST">
+                <input type="checkbox" name="said" value="said" class="said-tag"><span class="said-tag-span" style="margin: 0 10px;">прямая речь</span>
+                <input type="checkbox" name="author_comment" value="author_comment" class="author-tag"><span class="author-tag-span" style="margin: 0 10px;">слова автора</span>
+                <input type="checkbox" name="speech_verb" value="speech_verb" class="verb-tag"><span class="verb-tag-span" style="margin: 0 10px;">глагол речи</span>
+                <input type="checkbox" name="who" value="who" class="who-tag"><span class="who-tag-span" style="margin: 0 10px;">говорящий</span>
+              </form>
+            </div>
+
+          </div>
+          <div class="row" style="margin: 40px 0 15px 0;">
+            <div class="col-md-8">
+              <h3>Загрузить свой текст для разметки</h3>
+              <p>Вы можете загрузить свой текст и работать с ним онлайн или скачать размеченный текст, потому что мы крутые</p>
+            </div>
+          </div>
+
+          <div class="row" style="margin: 10px;">
+            <div class="col-md-12">
+              {% if form %}
+              <form method=post enctype=multipart/form-data>
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn btn-lg btn-info">Загрузить файл</button>
+              </form>
+              {% else %}
+              <i class="fas fa-cog fa-spin fa-5x"></i>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+
+
+
+       </div>
+     </div>
 {% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- main stuff-->
+
+     <div class="container-fluid">
+       <div class="row no-gutters">
+
+        <!--left side -->
+        <div class="col-md-8 left">
+
+
+          <div class="row">
+            <div class="col-md-11" >
+              <span style="padding-left: 10px; font-style: oblique;">Выберите тэги и параметры для исследования</span>
+              <div class="row" style="border: solid 1px black; border-radius: 10px; margin-left: 5px; padding: 5px 5px 30px 5px;">
+                <div class="col-md-4">
+                  <h6>Тэги</h6>
+                  <input type="checkbox" name="speech" value="speech" checked="">Прямая речь и слова автора<br>
+                  <input type="checkbox" name="said" value="said">Только прямая речь<br>
+                  <input type="checkbox" name="author_comment" value="author_comment">Только слова автора<br>
+                  <input type="checkbox" name="speech_verb" value="speech_verb">Глаголы речи<br>
+                </div>
+
+                <div class="col-md-4">
+                  <h6>Тип речи</h6>
+                      <input type="checkbox" name="direct" value="direct" checked="">Прямая<br>
+                      <input type="checkbox" name="indirect" value="indirect">Косвенная<br>
+                      <input type="checkbox" name="free-indirect" value="free-indirect">Несобственно-прямая<br>
+                </div>
+
+                <div class="col-md-3">
+                  <h6>Сказано вслух</h6>
+                  <input type="checkbox" name="aloud" value="true" checked="">Сказано вслух<br>
+                  <input type="checkbox" name="aloud" value="false">Не произнесено вслух<br>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+<!--
+          <div class="row" style="padding: 10px;">
+            <div class="col-md-3">
+              <form method="POST">
+                <button class="btn btn-lg btn-info">Скачать в формате</button><br>
+              </form>
+            </div>
+
+            <div class="col-md-1">
+              <input type="checkbox" name="xml" value="xml" checked="">xml<br>
+              <input type="checkbox" name="txt" value="txt">txt<br>
+            </div>
+          </div>
+        -->
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!--right side -->
+        <div class="col-md-4 right" style="border: solid 1px black; border-radius: 10px; padding: 30px 0 80px 10px; margin: 23px 0;">
+          <!--
+          <div class="row">
+            <div class="col-md-12">
+
+              <h3>Золотой стандарт</h3>
+
+              <p style="padding: 40px 5px;">
+             Скачайте золотой корпус
+              </p>
+            </div>
+
+          </div>
+           -->
+
+          <div class="row">
+            <div class="col-md-6">
+              <form method="POST">
+                <button class="btn btn-lg btn-info">Скачать в формате</button><br>
+              </form>
+            </div>
+            <div class="col-md-6">
+              <input type="checkbox" name="xml" value="xml" checked="">xml<br>
+              <input type="checkbox" name="txt" value="txt">txt<br>
+            </div>
+          </div>
+
+
+
+        </div>
+
+       </div>
+     </div>
+{% endblock %}

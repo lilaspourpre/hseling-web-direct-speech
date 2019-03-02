@@ -1,3 +1,43 @@
+$(document).ready(() => {
+  //$().on('click', () => {
+   // $('.download-button').show();
+  //});
+
+  $(".said-tag").on("click", () => {
+  	$(".said").toggleClass("said-active");
+
+  });
+
+
+  $(".author-tag").on("click", () => {
+  	$(".author-comment").toggleClass("author-active");
+
+  });
+
+
+  $(".verb-tag").on("click", () => {
+  	$(".speech-verb").toggleClass("verb-active");
+
+  });
+
+
+  $(".who-tag").on("click", () => {
+  	$(".who").toggleClass("who-active");
+
+  });
+
+
+
+
+});
+
+function download_file()
+{
+    var vars = getUrlVars(),
+      file_id = vars["file_id"];
+    window.open('/download_processed/?file_id=' + file_id);
+}
+
 function getUrlVars()
 {
     var vars = [], hash;
@@ -19,10 +59,11 @@ $(function () {
     var get_status = function () {
       $.get("/web/status?task_id=" + task_id, function(data) {
         if (data.ready) {
-          $(".lead").text(data.result);
-          $(".raw").text(data.raw);
+		  $("i").hide();
+		  $(location).attr('href', '/web/download?file_id='+data["file_id"])
         } else {
-          setTimeout(get_status, 2000);
+		  $("i").show();
+          setTimeout(get_status, 20);
         }
       });
     };

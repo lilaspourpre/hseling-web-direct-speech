@@ -16,7 +16,7 @@ x-common-variables: &common-variables
 
 services:
  hse-api-web:
-  image: hseling/hseling-api-direct-speech:latest
+  image: hseling/hseling-api-direct-speech:latest #hseling-api-direct-speech-master_hse-api-web:latest
   ports:
    - "80:80"
   links:
@@ -27,7 +27,7 @@ services:
   environment: *common-variables
 
  hse-api-celery:
-  image: hseling/hseling-api-direct-speech:latest
+  image: hseling/hseling-api-direct-speech:latest #hseling-api-direct-speech-master_hse-api-celery:latest
   command: celery -A main.celery worker
   links:
    - redis
@@ -61,7 +61,7 @@ services:
    dockerfile: ./docker/db/Dockerfile
    args:
     # These values should be in sync with environment.env
-    # for development. If you change them, you'll 
+    # for development. If you change them, you'll
     # need to rebuild the container
     - POSTGRES_DB=templatesitedb
     - POSTGRES_USER=postgres
@@ -98,7 +98,7 @@ services:
   env_file: environment.env
   environment:
    - CONSOLE_LOGS=1
-  build: 
+  build:
    context: .
    args:
     # Remember to keep this consistent
@@ -117,7 +117,7 @@ services:
   env_file: environment.env
   environment:
    - CONSOLE_LOGS=1
-  build: 
+  build:
    context: .
    args:
     # Remember to keep this consistent
@@ -143,7 +143,7 @@ services:
  server:
   image: templatesite
   env_file: environment.env
-  build: 
+  build:
    context: .
    args:
     # Remember to keep this consistent
