@@ -1,6 +1,6 @@
 import os
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django import forms
 
@@ -54,8 +54,7 @@ LIST_RU = ["Всего авторских комментариев (слова �
 
 # Create your views here.
 def web_index(request):
-    return render(request, 'index.html',
-                  context={})
+    return redirect('about')
 
 
 def web_about(request):
