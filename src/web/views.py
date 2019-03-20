@@ -1,10 +1,12 @@
+import os
+
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django import forms
 
 import requests
 
-HSE_API_ROOT = "http://hse-api-web/"
+HSE_API_ROOT = os.environ.get("HSELING_API_ROOT", "http://hse-api-web/")
 RU_TO_EN_DICT = {"Всего авторских комментариев (слова автора)": "author_comment",
                  "В них собственно высказываний:": "said",
                  "Не сказано вслух:": "said_aloud_false",
