@@ -55,18 +55,21 @@
           </table>
           
         </div>
+        <!-- 
+        <div class="row" style="margin: 10px;">
+        -->
+        <div class="col-md-4">
+          {% if file_id %}
+            <button type="button" onclick="window.open('download_processed?file_id={{file_id}}')" class="btn btn-lg btn-info" style="margin-top: 10px">Cкачать файл</button>
+          {% endif %}
+        </div>
+      <!--</div> -->
 
          
        </div>
      </div>
 
-      <div class="row" style="margin: 10px;">
-        <div class="col-md-12">
-          {% if file_id %}
-            <button type="button" onclick="window.open('download_processed?file_id={{file_id}}')" class="btn btn-lg btn-info" style="margin-top: 10px">Cкачать файл</button>
-          {% endif %}
-        </div>
-      </div>
+      
     </div>
 
 
@@ -76,7 +79,7 @@
 
 
 
-
+</div>
   </div>
 </div>
 {% endblock %}
