@@ -3,8 +3,8 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.web_index, name='index'),
-    url(r'^main$', views.web_upload_file, name='upload'),
+    url(r'^$', views.web_upload_file, name='upload'),
+    url(r'^index$', views.web_upload_file, name='upload'),
     url(r'^download$', views.download_file, name='download'),
     url(r'^status$', views.web_status, name='status'),
     url(r'^about$', views.web_about, name='about'),

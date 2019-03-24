@@ -69,7 +69,7 @@ def web_tag(request):
 
 
 def web_main(request):
-    return render(request, 'main.html',
+    return render(request, 'index.html',
                   context={"status": request.GET.get('status')})
 
 
@@ -104,9 +104,7 @@ def download_file(request):
 def download_processed(request):
     file_id = request.GET.get('file_id')
     file_ = requests.request("GET", HSE_API_ROOT + 'files/' + file_id)
-    text = file_.content
-    with open('test', 'w') as f:
-        f.write(text.decode('utf-8'))
+    text = file_.content.decode('utf-8')
     response = HttpResponse(text, content_type="application/txt")
     response['Content-Disposition'] = 'attachment;filename={}'.format(file_id)
     return response
@@ -162,8 +160,8 @@ def web_upload_file(request):
             return HttpResponseRedirect('p?task_id=' + task_id)
     else:
         form = UploadFileForm()
-    return render(request, 'main.html', {'form': form})
+    return render(request, 'index.html', {'form': form})
 
 
 def web_processing(request):
-    return render(request, 'main.html')
+    return render(request, 'index.html')
