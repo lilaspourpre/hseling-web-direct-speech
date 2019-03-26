@@ -1,0 +1,76 @@
+#markup-example {
+  font-style: oblique;
+}
+
+#page-title {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.page-header {
+  background-color: #ffebcd;
+}
+
+#download-button {
+  display: none;
+}
+
+
+.said-tag {
+  background-color: orange;
+}
+
+
+.said-tag-span {
+  background-color: orange;
+}
+
+.said-active {
+  background-color: orange;
+
+}
+
+.author-tag {
+  background-color: lightgreen;
+
+}
+
+.author-tag-span {
+  background-color: lightgreen;
+}
+
+.author-active {
+  background-color: lightgreen;
+}
+
+
+.verb-tag {
+  background-color: #FA58F4;
+}
+
+.verb-tag-span {
+  background-color: #FA58F4;
+
+}
+
+.verb-active {
+  background-color: #FA58F4;
+  opacity: .7;
+
+}
+
+.who-tag {
+  background-color: #AC58FA;
+
+}
+
+.who-tag-span {
+  background-color: #AC58FA;
+
+}
+
+.who-active {
+  background-color: #AC58FA;
+  opacity: .7;
+
+}
