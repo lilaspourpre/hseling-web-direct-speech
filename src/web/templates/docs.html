@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class='row'>
+           <div class="col-md-6" style="margin-top: 10px; border: solid 5px #ffebcd; padding: 10px;">
+        
+        <h4>API</h4>
+        <h6>Загрузить файл</h6>
+        <pre>
+          <code>POST /upload HTTP/1.1</code>
+        </pre>
+
+        <h6>Обработать файл (например, "filename.txt")</h6>
+        <pre>
+          <code>GET /process/filename.txt HTTP/1.1</code>
+        </pre>
+        <p>В ответ на данный запрос поступает task_id, по которому можно отслеживать состояние обработки.</p>
+        <br>
+
+        <h6>Отследить статус обработки для (например, task_id=f2a94c1a-a2f3-4a19-ae2d-b1bc959d0b6a):</h6>
+        <pre>
+          <code>GET /status/f2a94c1a-a2f3-4a19-ae2d-b1bc959d0b6a HTTP/1.1</code>
+        </pre>
+
+        <h6>Скачать обработанный файл (например, "filename.txt"):</h6>
+        <pre>
+          <code>GET /files/processed/filename.txt HTTP/1.1</code>
+        </pre>
+
+        <h6>Скачать золотой корпус в формате txt:</h6>
+        <pre>
+          <code>GET /files/gold?type=txt HTTP/1.1</code>
+        </pre>
+
+        <h6>Скачать золотой корпус в формате xml:</h6>
+        <pre>
+          <code>GET /files/gold?type=xml HTTP/1.1</code>
+        </pre>
+
+        <h6>Получить статистику по обработанному файлу (например, "filename.txt"):</h6>
+        <pre>
+          <code>GET /query/filename.txt?type=statistics HTTP/1.1</code>
+        </pre>
+
+        <h6>Получить статистику по золотому корпусу:</h6>
+        <pre>
+          <code>GET /query/gold?type=statistics HTTP/1.1</code>
+        </pre>
+
+        <h6>Получить содержимое тегов обработанного файла (например, "filename.txt"):</h6>
+        <pre>
+          <code>POST /query/filename.txt?type=tags HTTP/1.1</code>
+          <code>Content-Type: application/json</code>
+          <code>{"tag":["author_comment"]}</code>
+        </pre>  
+
+        <p>Полный перечень тегов и их атрибутов смотрите на странице "О проекте" в разделе "Разметка"</p>
+        <br>
+
+        <h6>Получить содержимое тегов золотого корпуса:</h6>
+        <pre>
+          <code>POST /query/gold HTTP/1.1</code>
+          <code>Content-Type: application/json</code>
+        </pre>
+        <h6>Формат body для запроса:</h6>
+        <pre>
+          <code>{"tag":["speech_verb"]}</code>
+          <code>{"tags": ["said"], "params":["semantic"]}</code>
+        </pre>
+        <p>Полный перечень тегов и их атрибутов смотрите на странице "О проекте" в разделе "Разметка"</p>
+        
+      </div>
+
+
+
+      <div class="col-md-6" style="margin-top: 10px; border: solid 5px #ffebcd; padding: 10px;">
+        <h4>Установка модуля с помощью pip</h4>
+        <h6>Использовать данный модуль можно в python3.</h6>
+        <pre>
+          <code>cd hseling_api_direct_speech</code>
+          <code>pip3 install setup.py</code>
+          <code>pip3 install -r requirements.txt</code>
+        </pre>
+
+        <h6>Доступные операции</h6>
+        <pre>
+          <code>from hseling_api_direct_speech.process import process_data</code>
+          <code>process_data("Ваш текст")</code>
+        </pre>
+
+        <p>Данная команда автоматически обрабатывает ваш текст с использованием всех этапов обработки текста.</p>
+        <br>
+        <h6>Настроить Pipeline вы также можете вручную:</h6>
+        <pre>
+          <code>from hseling_api_direct_speech.speech.pipeline import Pipeline</code>
+
+          <code>reader = FileReader()</code>
+          <code>quotes_adapter = QuotesAdapter()</code>
+          <code>speech_detector = SpeechDetector()</code>
+          <code>said_comment_tagger = SaidCommentTagger()</code>
+          <code>verb_tagger = VerbTagger("csv_files/verbs.csv")</code>
+          <code>pipeline = Pipeline(reader, quotes_adapter, speech_detector, said_comment_tagger, verb_tagger)</code>
+          <code>pipeline.apply_to(text)</code>
+        </pre>
+        <p>Обратите внимание, что VerbTagger не может быть запущен без SaidCommentTagger, которому, в свою очередь, необходим SpeechDetector. 
+В то же время от последующих этапов pipeline вы можете отказаться:</p>
+        <pre>
+          <code>reader = FileReader()</code>
+          <code>quotes_adapter = QuotesAdapter()</code>
+          <code>speech_detector = SpeechDetector()</code>
+          <code>pipeline = Pipeline(reader, quotes_adapter, speech_detector)</code>
+          <code>pipeline.apply_to(text)</code>
+        </pre>
+        
+      </div>
+  
+    </div>
+    
+  </div>
+  
+{% endblock %}
