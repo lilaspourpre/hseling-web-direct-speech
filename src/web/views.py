@@ -61,6 +61,10 @@ def web_about(request):
     return render(request, 'about.html', context={})
 
 
+def web_docs(request):
+    return render(request, 'docs.html', context={})
+
+
 def web_gold(request):
     return render(request, 'gold-corpus.html', context={})
 
@@ -91,8 +95,7 @@ def download_file(request):
     new_statistics = []
     file_id = request.GET.get('file_id')
     if file_id:
-        statistics = requests.get(HSE_API_ROOT +
-                                  'query/text.txt?type=statistics').json()
+        statistics = requests.request("GET", HSE_API_ROOT + 'query/'+ file_id.replace("processed/", "") + '?type=statistics').json()
         for n in LIST_RU:
             try:
                 new_statistics.append((n, statistics[RU_TO_EN_DICT[n]]))
@@ -105,7 +108,7 @@ def download_file(request):
 def download_processed(request):
     file_id = request.GET.get('file_id')
     file_ = requests.request("GET", HSE_API_ROOT + 'files/' + file_id)
-    text = file_.content.decode('utf-8')
+    text = file_.content
     response = HttpResponse(text, content_type="application/txt")
     response['Content-Disposition'] = 'attachment;filename={}'.format(file_id)
     return response

@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^download$', views.download_file, name='download'),
     url(r'^status$', views.web_status, name='status'),
     url(r'^about$', views.web_about, name='about'),
+    url(r'^docs$', views.web_docs, name='docs'),
     url(r'^gold$', views.download_gold, name='gold'),
     url(r'^p$', views.web_processing, name='p'),
     url(r'^download_txt$', views.download_txt, name='download_txt'),
